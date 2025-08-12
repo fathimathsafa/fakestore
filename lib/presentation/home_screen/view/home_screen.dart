@@ -46,7 +46,6 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Welcome Section
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(24.w),
@@ -88,7 +87,6 @@ class HomeScreen extends StatelessWidget {
               
              
               
-              // Products List
               Expanded(
                 child: Obx(() {
                   if (productController.isLoading.value && productController.products.isEmpty) {
@@ -258,13 +256,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           
-          // Product Details
           Padding(
             padding: EdgeInsets.all(12.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Product Name
                 Text(
                   product.title ?? 'No Title',
                   style: TextStyle(
@@ -279,11 +275,9 @@ class HomeScreen extends StatelessWidget {
                 
                 SizedBox(height: 8.h),
                 
-                // Rating and Price Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Rating
                     Row(
                       children: [
                         Icon(
@@ -303,7 +297,6 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     
-                    // Price
                     Text(
                       '\$${product.price?.toStringAsFixed(2) ?? '0.00'}',
                       style: TextStyle(

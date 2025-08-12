@@ -17,7 +17,7 @@ class _LogInScreenState extends State<LogInScreen> {
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
   
-  // GetX Controller
+
   final LoginController authController = Get.put(LoginController());
 
   @override
@@ -48,7 +48,6 @@ class _LogInScreenState extends State<LogInScreen> {
               height: 1.sh - MediaQuery.of(context).padding.top,
               child: Column(
                 children: [
-                  // Top section with welcome text
                   Expanded(
                     flex: 2,
                     child: Column(
@@ -76,7 +75,6 @@ class _LogInScreenState extends State<LogInScreen> {
                     ),
                   ),
                   
-                  // Login form section
                   Expanded(
                     flex: 3,
                     child: Container(
@@ -101,7 +99,6 @@ class _LogInScreenState extends State<LogInScreen> {
                             children: [
                               SizedBox(height: 32.h),
                               
-                              // Email Field
                               Container(
                                 decoration: BoxDecoration(
                                   color: ColorTheme.backgroundColor,
@@ -145,7 +142,6 @@ class _LogInScreenState extends State<LogInScreen> {
                               
                               SizedBox(height: 20.h),
                               
-                              // Password Field
                               Container(
                                 decoration: BoxDecoration(
                                   color: ColorTheme.backgroundColor,
@@ -204,7 +200,6 @@ class _LogInScreenState extends State<LogInScreen> {
                               
                               SizedBox(height: 32.h),
                               
-                              // Login Button
                               Container(
                                 height: 56.h,
                                 decoration: BoxDecoration(
@@ -258,7 +253,6 @@ class _LogInScreenState extends State<LogInScreen> {
                               
                               SizedBox(height: 24.h),
                               
-                              // Sign up option
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -271,7 +265,6 @@ class _LogInScreenState extends State<LogInScreen> {
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      // Navigate to sign up
                                     },
                                     child: Text(
                                       'Sign Up',

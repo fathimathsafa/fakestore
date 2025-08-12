@@ -5,12 +5,10 @@ import 'package:fake_store/repository/details_screen/service/product_details_ser
 class ProductDetailsController extends GetxController {
   final ProductDetailsService _productDetailsService = ProductDetailsService();
   
-  // Observable variables
   final RxBool isLoading = false.obs;
   final Rx<SingleProductModel?> product = Rx<SingleProductModel?>(null);
   final RxString errorMessage = ''.obs;
 
-  // Fetch product details method
   Future<void> fetchProductDetails(int productId) async {
     try {
       isLoading.value = true;
@@ -27,7 +25,6 @@ class ProductDetailsController extends GetxController {
     }
   }
 
-  // Clear data when leaving screen
   void clearData() {
     product.value = null;
     errorMessage.value = '';

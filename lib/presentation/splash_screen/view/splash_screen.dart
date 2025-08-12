@@ -40,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
     
-    // Navigate after 3 seconds
    _navigateToNextScreen();
   }
 
@@ -63,7 +62,6 @@ class _SplashScreenState extends State<SplashScreen>
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     
-    // Responsive values
     final isTablet = screenWidth > 600;
     final fontSize = isTablet ? 48.0 : 36.0;
     final letterSpacing = isTablet ? 2.0 : 1.5;
@@ -87,10 +85,8 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // App Icon
                     
                       
-                      // App Name
                       Text(
                         'SnapCart',
                         style: TextStyle(
@@ -104,7 +100,6 @@ class _SplashScreenState extends State<SplashScreen>
                       
                       SizedBox(height: 8),
                       
-                      // Tagline
                       Text(
                         'Your Ultimate Shopping Destination',
                         style: TextStyle(
@@ -116,7 +111,6 @@ class _SplashScreenState extends State<SplashScreen>
                       
                       SizedBox(height: spacing + 20),
                       
-                      // Loading indicator
                       SizedBox(
                         width: iconSize,
                         height: iconSize,

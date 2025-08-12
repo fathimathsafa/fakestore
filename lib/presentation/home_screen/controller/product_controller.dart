@@ -5,7 +5,6 @@ import 'package:fake_store/repository/home_screen/service/product_service.dart';
 class ProductController extends GetxController {
   final ProductService _productService = ProductService();
   
-  // Observable variables
   final RxBool isLoading = false.obs;
   final RxList<ProductModel> products = <ProductModel>[].obs;
   final RxString errorMessage = ''.obs;
@@ -16,7 +15,6 @@ class ProductController extends GetxController {
     fetchProducts();
   }
 
-  // Fetch products method
   Future<void> fetchProducts() async {
     try {
       isLoading.value = true;
@@ -33,7 +31,6 @@ class ProductController extends GetxController {
     }
   }
 
-  // Refresh products
   Future<void> refreshProducts() async {
     await fetchProducts();
   }

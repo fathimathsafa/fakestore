@@ -6,13 +6,11 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   final LoginService _authService = LoginService();
   
-  // Observable variables
   final RxBool isLoading = false.obs;
   final RxBool isLoggedIn = false.obs;
   final RxString errorMessage = ''.obs;
   final RxString token = ''.obs;
 
-  // Login method
   Future<void> login(String username, String password) async {
     try {
       isLoading.value = true;
@@ -25,7 +23,6 @@ class LoginController extends GetxController {
         isLoggedIn.value = true;
         errorMessage.value = '';
         
-        // Log the response to console
         log('=== LOGIN SUCCESS ===');
         log('Token: ${response['token']}');
         log('Success: ${response['success']}');
@@ -33,7 +30,6 @@ class LoginController extends GetxController {
         log('Full Response: ${response['data']}');
         log('====================');
         
-        // Show success message
         Get.snackbar(
           'Success',
           'Login successful!',
@@ -42,13 +38,11 @@ class LoginController extends GetxController {
           colorText: Colors.white,
         );
         
-        // Navigate to home screen
         Get.offAllNamed('/home');
         
       } else {
         errorMessage.value = response['message'] ?? 'Login failed';
         
-        // Show error message
         Get.snackbar(
           'Error',
           errorMessage.value,
@@ -72,17 +66,15 @@ class LoginController extends GetxController {
     }
   }
 
-  // Logout method
   void logout() {
     token.value = '';
     isLoggedIn.value = false;
     errorMessage.value = '';
     
-    // Navigate to login screen
-    // Get.offAllNamed('/login');
+   
   }
 
-  // Clear error message
+ 
   void clearError() {
     errorMessage.value = '';
   }

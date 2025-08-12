@@ -16,7 +16,6 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductDetailsController controller = Get.put(ProductDetailsController());
     
-    // Fetch product details when screen loads
     WidgetsBinding.instance.addPostFrameCallback((_) {
       controller.fetchProductDetails(productId);
     });
@@ -94,7 +93,6 @@ class ProductDetailsScreen extends StatelessWidget {
 
           return CustomScrollView(
             slivers: [
-              // App Bar with back button
               SliverAppBar(
                 expandedHeight: 300.h,
                 pinned: true,
@@ -153,7 +151,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
 
-              // Product Details
+            
               SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.all(24.w),
@@ -173,11 +171,11 @@ class ProductDetailsScreen extends StatelessWidget {
                       
                       SizedBox(height: 16.h),
                       
-                      // Rating and Price Row
+                    
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Rating
+                        
                           Row(
                             children: [
                               Container(
@@ -216,7 +214,6 @@ class ProductDetailsScreen extends StatelessWidget {
                             ],
                           ),
                           
-                          // Price
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                             decoration: BoxDecoration(
@@ -237,7 +234,6 @@ class ProductDetailsScreen extends StatelessWidget {
                       
                       SizedBox(height: 24.h),
                       
-                      // Category
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                         decoration: BoxDecoration(
@@ -256,7 +252,6 @@ class ProductDetailsScreen extends StatelessWidget {
                       
                       SizedBox(height: 24.h),
                       
-                      // Description
                       Text(
                         'Description',
                         style: TextStyle(
@@ -292,7 +287,6 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       
                       
-                      // Add to Cart Button
                       
                       
                     ],
