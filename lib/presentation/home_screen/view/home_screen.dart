@@ -1,17 +1,16 @@
-import 'package:fake_store/presentation/login_screen/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:fake_store/core/constants/color_constants.dart';
-import 'package:fake_store/repository/home_screen/controller/product_controller.dart';
+import 'package:fake_store/presentation/home_screen/controller/product_controller.dart';
 import 'package:fake_store/repository/home_screen/model/product_model.dart';
+import 'package:fake_store/presentation/details_screen/view/product_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final LoginController authController = Get.find<LoginController>();
     final ProductController productController = Get.put(ProductController());
     
     return Scaffold(
@@ -28,19 +27,18 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: () {
-              authController.logout();
-              Get.offAllNamed('/login');
-            },
-            icon: Icon(
-              Icons.logout,
-              color: ColorTheme.primaryColor,
-              size: 24.sp,
+                  actions: [
+            IconButton(
+              onPressed: () {
+                Get.offAllNamed('/login');
+              },
+              icon: Icon(
+                Icons.logout,
+                color: ColorTheme.primaryColor,
+                size: 24.sp,
+              ),
             ),
-          ),
-        ],
+          ],
       ),
       body: SafeArea(
         child: Padding(
@@ -168,7 +166,12 @@ class HomeScreen extends StatelessWidget {
                       itemCount: productController.products.length,
                       itemBuilder: (context, index) {
                         final product = productController.products[index];
-                        return _buildProductCard(product);
+                        return GestureDetector(
+                          onTap: () {
+                            Get.to(() => ProductDetailsScreen(productId: product.id ?? 1));
+                          },
+                          child: _buildProductCard(product),
+                        );
                       },
                     ),
                   );
